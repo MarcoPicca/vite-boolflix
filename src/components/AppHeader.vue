@@ -1,26 +1,34 @@
 <template >
-    <div class="container-search-bar-appheader">
-        <SearchBar />
+    <div >
+        <!-- 9 INSERISCO L'INPUT CON LEGAME BIDIREZZIONALE(V-MODEL) E INSERISCO CIO' CHE L'UTENTE SCRIVE -->
+        <input type="text" v-model="searchedString" @keyup.enter="store.getMovies(searchedString)" name="" id="">
+        
+        <!-- 11 SU UN BOTTONE IMPOSTO UN EVENTO CON $EMIT CHE PASSA 
+        SIA SEARCH CHE SI TROVA IN APP VUE 
+        SIA IL DATO CHE STO TRASFERENDO DALL'INPUT -->
+        <button @click="store.getMovies(serchedString)">Cerca</button>
     </div>
 </template>
+
 <script>
-import SearchBar from './SearchBar.vue';
+import { store } from "../store";
 
 export default {
     name: 'AppHeader',
-    components: {
-        SearchBar,
-    }
-        
+    
+    // 10 INSERISCO IL DATA CHE COMUNICA CON V-MODEL
+        data(){
+            return {
+                store,
+                searchedString: '',
+            }
+        }
 }
 </script>
 
 <style lang="scss" scoped>
-    .container-search-bar-appheader{
-        widows: 100%;
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    
 </style>
+
+
+<!-- AL PASSAGGIO 11 ANDARE SU APPMAIN -->
