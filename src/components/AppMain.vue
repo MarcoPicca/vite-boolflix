@@ -10,8 +10,6 @@
         </article>
         <br>
         <br>
-        <br>
-        <br>
         <h1>Serie Tv</h1>
         <section v-for="tv in tvs">
             {{ tv.name }}
