@@ -2,7 +2,7 @@
     <main>
         <!-- 13 GENERO TRAMITE V-FOR LE CARD CHE CONTERRANNO I DATI RICHIESTI IN QUESTO CASO TITOLO DEL FILM -->
         <h1>Film</h1>
-        <article v-for="film in films">
+        <article v-for="film in films" :key="film.id">
             {{ film.title }}
             {{ film.original_title }}
             {{ film.original_language }}
@@ -11,7 +11,7 @@
         <br>
         <br>
         <h1>Serie Tv</h1>
-        <section v-for="tv in tvs">
+        <section v-for="tv in tvs" :key="tv.id">
             {{ tv.name }}
             {{ tv.original_name }}
             {{ tv.original_language }}

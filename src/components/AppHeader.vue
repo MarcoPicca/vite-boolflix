@@ -1,12 +1,12 @@
 <template >
     <div >
         <!-- 9 INSERISCO L'INPUT CON LEGAME BIDIREZZIONALE(V-MODEL) E INSERISCO CIO' CHE L'UTENTE SCRIVE -->
-        <input type="text" v-model="searchedString" @keyup.enter="$emit('searchMovies', searchedString) && $emit('searchTvs', searchedString)" name="" id="">
-        
+        <input type="text" v-model="searchedString" @keyup.enter="searchAll" name="" id="">
+        <!-- , $emit('searchTvs', tvsString) -->
         <!-- 11 SU UN BOTTONE IMPOSTO UN EVENTO CON $EMIT CHE PASSA 
         SIA SEARCH, CANALE CHE SI TROVA IN APP VUE 
         SIA IL DATO CHE STO TRASFERENDO DALL'INPUT -->
-        <button @click="$emit('searchMovie', searchedString) && $emit('searchTvs', searchedString)">Cerca</button>
+        <button @click="searchAll">Cerca</button>
     </div>
 </template>
 
@@ -21,6 +21,12 @@ export default {
             return {
                 // store,
                 searchedString: '',
+            }
+        },
+        methods: {
+            searchAll(){
+                this.$emit('searchMovies', this.searchedString); 
+                this.$emit('searchTvs', this.searchedString);
             }
         }
 }
