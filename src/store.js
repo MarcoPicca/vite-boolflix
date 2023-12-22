@@ -1,24 +1,24 @@
-import { reactive } from 'vue';
-import axios from 'axios';
+// import { reactive } from 'vue';
+// import axios from 'axios';
 
-export const store = reactive( {
-    // SEARCHCONTENT SOSTITUISCE SERCHEDSRTING
+// export const store = reactive( {
+//     // SEARCHCONTENT SOSTITUISCE SERCHEDSRTING
 
-    // serchedString: '',
-    filmsList: [],
+//     // serchedString: '',
+//     filmsList: [],
 
-    getMovies(searchContent = ''){
-        axios.get('https://api.themoviedb.org/3/search/movie?api_key=c5ed5630de230b624edd39713b2e45b6&query=' + searchContent)
-          .then((response) => {
-            console.log(response);
-            // 14 IN ARROW FUNCTION TRAMITE THIS ASSOCIO IL DATO(FLIMSLIST) AL RISULTATO CHE DARA' L'API
-            this.filmsList = response.data.results;
-          })
-          .catch(function (error) {
-            console.error(error);
-          });
-    }      
-} );
+//     getMovies(searchContent = ''){
+//         axios.get('https://api.themoviedb.org/3/search/movie?api_key=c5ed5630de230b624edd39713b2e45b6&query=' + searchContent)
+//           .then((response) => {
+//             console.log(response);
+//             // 14 IN ARROW FUNCTION TRAMITE THIS ASSOCIO IL DATO(FLIMSLIST) AL RISULTATO CHE DARA' L'API
+//             this.filmsList = response.data.results;
+//           })
+//           .catch(function (error) {
+//             console.error(error);
+//           });
+//     }      
+// } );
 
 
 // SE SI UTILIZZA LO STORE

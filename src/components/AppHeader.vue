@@ -1,17 +1,17 @@
 <template >
     <div >
         <!-- 9 INSERISCO L'INPUT CON LEGAME BIDIREZZIONALE(V-MODEL) E INSERISCO CIO' CHE L'UTENTE SCRIVE -->
-        <input type="text" v-model="searchedString" @keyup.enter="store.getMovies(searchedString)" name="" id="">
+        <input type="text" v-model="searchedString" @keyup.enter="$emit('searchMovies', searchedString)" name="" id="">
         
         <!-- 11 SU UN BOTTONE IMPOSTO UN EVENTO CON $EMIT CHE PASSA 
-        SIA SEARCH CHE SI TROVA IN APP VUE 
+        SIA SEARCH, CANALE CHE SI TROVA IN APP VUE 
         SIA IL DATO CHE STO TRASFERENDO DALL'INPUT -->
-        <button @click="store.getMovies(serchedString)">Cerca</button>
+        <button @click="$emit('searchMovies', searchedString)">Cerca</button>
     </div>
 </template>
 
 <script>
-import { store } from "../store";
+// import { store } from "../store";
 
 export default {
     name: 'AppHeader',
@@ -19,7 +19,7 @@ export default {
     // 10 INSERISCO IL DATA CHE COMUNICA CON V-MODEL
         data(){
             return {
-                store,
+                // store,
                 searchedString: '',
             }
         }
