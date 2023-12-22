@@ -1,15 +1,24 @@
 <template lang="">
     <main>
         <!-- 13 GENERO TRAMITE V-FOR LE CARD CHE CONTERRANNO I DATI RICHIESTI IN QUESTO CASO TITOLO DEL FILM -->
+        <h1>Film</h1>
         <article v-for="film in films">
             {{ film.title }}
             {{ film.original_title }}
             {{ film.original_language }}
             {{ film.vote_average }}
         </article>
-        <article v-for="tv in tvs">
-            
-        </article>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>Serie Tv</h1>
+        <section v-for="tv in tvs">
+            {{ tv.name }}
+            {{ tv.original_name }}
+            {{ tv.original_language }}
+            {{ tv.vote_average }}
+        </section>
     </main>
 </template>
 
@@ -46,5 +55,11 @@
 </script>
 
 <style lang="scss" scoped>
-    
+    article{
+        margin-bottom: 1rem;
+    }
+
+    section{
+        background-color: yellowgreen;
+    }
 </style>
