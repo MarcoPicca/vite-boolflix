@@ -19,7 +19,6 @@
         },
 
 
-
         methods: {
           // 3 SEARCHCONTENT VIENE PASSATO COME ARGOMENTO
           // ED ARRIVA VIA $EMIT.
@@ -48,8 +47,8 @@
               });
           },
 
-          getImg(searchContent = ''){
-            axios.get('https://api.themoviedb.org/3/search/tv?api_key=c5ed5630de230b624edd39713b2e45b6&query=' + searchContent)
+          getImgs(searchContent = ''){
+            axios.get('https://api.themoviedb.org/3/search/movie_id/w342?api_key=c5ed5630de230b624edd39713b2e45b6&query=' + searchContent)
               .then((response) => {
                 console.log(response);
                 // 14 IN ARROW FUNCTION TRAMITE THIS ASSOCIO IL DATO(TVLIST) AL RISULTATO CHE DARA' L'API
@@ -58,7 +57,9 @@
               .catch(function (error) {
                 console.error(error);
               });
-          }
+          },
+    
+       
         },
 
         created() {
@@ -80,13 +81,14 @@
 
 <template>
   <!-- 7 CREO UN CANALE(L'EVENTO SEARCH) CHE CHIAMA GETMOVIES  -->
-  <AppHeader  @searchMovies="getMovies" @searchTvs="getTvs" @searchImgs="getImgs" />
-  <!-- @searchMovies="getMovies" -->
+  <AppHeader  @searchMovies="getMovies" @searchTvs="getTvs" @searchImgs="getImgs"  />
+  
       
 
   <!-- 8 QUI PASSO IL NOME DELLA PROP(FILMS) CHE ARRIVERA' DA APPMAIN
        ED INDICO DOVE VOGLIO MANDARE IL DATO CHE ARRIVA -->
-  <AppMain :films="filmsList" :tvs="tvsList" :imgs="imgsList"/>
+  <AppMain :films="filmsList" :tvs="tvsList" :imgs="imgsList" />
+  
   
 </template>
 

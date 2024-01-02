@@ -2,7 +2,7 @@
     <div >
         <!-- 9 INSERISCO L'INPUT CON LEGAME BIDIREZZIONALE(V-MODEL) E INSERISCO CIO' CHE L'UTENTE SCRIVE -->
         <input type="text" v-model="searchedString" @keyup.enter="searchAll" name="" id="">
-        <!-- , $emit('searchTvs', tvsString) -->
+        
         <!-- 11 SU UN BOTTONE IMPOSTO UN EVENTO CON $EMIT CHE PASSA 
         SIA SEARCH, CANALE CHE SI TROVA IN APP VUE 
         SIA IL DATO CHE STO TRASFERENDO DALL'INPUT -->
@@ -27,6 +27,8 @@ export default {
             searchAll(){
                 this.$emit('searchMovies', this.searchedString); 
                 this.$emit('searchTvs', this.searchedString);
+                this.$emit('searchImgs', this.searchedString);
+                this.searchedString = '';
             }
         }
 }
